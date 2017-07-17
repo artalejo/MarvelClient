@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <string name="empty_favorite_characters">You have no favorite marvel characters yet</string>
+    <string name="marvel_characters_activity_toolbar_title">Marvel characters</string>
+    <string name="favorite_characters_activity_toolbar_title">Favorite characters</string>
+    <string name="marvel_character_favorite_action_error">Error changing character favorite status</string>
+    <string name="marvel_character_added_to_favorites">Character added to favorites</string>
+    <string name="marvel_character_removed_from_favorites">Character removed from favorites</string>
+    <string name="marvel_new_characters_request_error">Error retrieving more marvel characters</string>
+</resources>
