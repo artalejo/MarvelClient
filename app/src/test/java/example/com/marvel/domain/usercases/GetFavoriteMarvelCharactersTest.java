@@ -39,7 +39,7 @@ public class GetFavoriteMarvelCharactersTest {
     public void getFavoritesMarvelCharactersTest() throws Exception {
         GetFavoriteMarvelCharactersUserCaseImpl userCase =
                 new GetFavoriteMarvelCharactersUserCaseImpl(mExecutor, mMainThread,
-                        mockedRepo, mockedGeMarvelCharactersCallback);
+                                                            mockedRepo, mockedGeMarvelCharactersCallback);
         userCase.run();
 
         Mockito.verify(mockedGeMarvelCharactersCallback).onFavoriteMarvelCharactersRetrieved(Matchers.anyListOf(MarvelCharacter.class));

@@ -142,13 +142,10 @@ public class FavoriteMarvelCharactersActivity extends AppCompatActivity
 
     @Override
     public void onCharacterRemovedFromFavorite(long characterId) {
-        // Removing the just unfavorited character and updating the favorites list.
+        // Removing the favorite character and updating the favorites list.
         charactersAdapter.removeCharacterById(characterId);
         favoriteCharacters = charactersAdapter.getUpdatedMarvelCharacters();
         showEmptyViewIfNoFavorites();
-
-//        Toast.makeText(this, R.string.marvel_character_removed_from_favorites,
-//                       Toast.LENGTH_SHORT).show();
     }
 
 }

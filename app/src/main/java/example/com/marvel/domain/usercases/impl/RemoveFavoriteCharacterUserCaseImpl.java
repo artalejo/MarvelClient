@@ -9,7 +9,7 @@ import example.com.marvel.domain.usercases.base.AbstractUserCase;
 import example.com.marvel.network.models.MarvelCharacter;
 
 /**
- * User case that sets the character favorite status.
+ * User case that removes a favorite character.
  */
 public class RemoveFavoriteCharacterUserCaseImpl extends AbstractUserCase implements RemoveFavoriteCharacterUserCase {
 
@@ -36,7 +36,7 @@ public class RemoveFavoriteCharacterUserCaseImpl extends AbstractUserCase implem
         final int isCharacterFavorite = repository.setCharacterFavoriteStatus(character, isFavorite);
         final long removedCharacterId = isCharacterFavorite == 0 ? character.getId() : -1;
 
-        // notify on the main thread that we have inserted the character favorite status.
+        // notify on the main thread that we have removed the character from the favorites list.
         mMainThread.post(new Runnable() {
             @Override
             public void run() {

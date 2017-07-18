@@ -71,7 +71,11 @@ public class DbHelperTest {
     @Test
     public void insertFavoriteMarvelCharacterReturnsTrueWhenCharacterAdded() {
         int result = dbHelper.insertFavoriteCharacter(sampleCharacter);
+        HashSet<Long> favoriteCharacterIds = dbHelper.getFavoriteCharacterIds();
+        ArrayList<MarvelCharacter> favoriteCharacters = dbHelper.getFavoriteCharacters();
         assertEquals(result, 1);
+        assertEquals(favoriteCharacterIds.size(), 1);
+        assertEquals(favoriteCharacters.size(), 1);
     }
 
     @Test
@@ -84,8 +88,17 @@ public class DbHelperTest {
     public void deleteFavoriteMarvelCharacterReturnsTrueWhenCharacterRemoved() {
         // Adding marvel character and later on removing it.
         dbHelper.insertFavoriteCharacter(sampleCharacter);
-        int result = dbHelper.deleteFavoriteCharacter(sampleCharacter);
-        assertEquals(result, 0);
+        HashSet<Long> favoriteCharacterIds = dbHelper.getFavoriteCharacterIds();
+        ArrayList<MarvelCharacter> favoriteCharacters = dbHelper.getFavoriteCharacters();
+        assertEquals(favoriteCharacterIds.size(), 1);
+        assertEquals(favoriteCharacters.size(), 1);
+        // Removing the favorite just added
+        int removedResult = dbHelper.deleteFavoriteCharacter(sampleCharacter);
+        favoriteCharacterIds = dbHelper.getFavoriteCharacterIds();
+        favoriteCharacters = dbHelper.getFavoriteCharacters();
+        assertEquals(removedResult, 0);
+        assertEquals(favoriteCharacterIds.size(), 0);
+        assertEquals(favoriteCharacters.size(), 0);
     }
 
     @Test
@@ -97,7 +110,6 @@ public class DbHelperTest {
     @Test
     public void getFavoriteCharactersReturnCharacterJustAdded() {
         int addedCharacterResult = dbHelper.insertFavoriteCharacter(sampleCharacter);
-
         ArrayList<MarvelCharacter> favoriteCharacters = dbHelper.getFavoriteCharacters();
 
         assertEquals(addedCharacterResult, 1);

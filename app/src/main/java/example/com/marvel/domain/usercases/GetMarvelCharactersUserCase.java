@@ -8,7 +8,4 @@ import example.com.marvel.domain.usercases.base.UserCase;
  */
 public interface GetMarvelCharactersUserCase extends UserCase {
 
-    interface Callback {
-        void onMarvelCharactersRetrieved();
-    }
 }

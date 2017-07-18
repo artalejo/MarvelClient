@@ -8,7 +8,7 @@ import example.com.marvel.network.models.MarvelCharactersResponse;
 import retrofit2.Callback;
 
 /**
- * Interface that abstracts the way of retrieving the info abput the marvel characters.
+ * Interface that abstracts the way of retrieving the info about the marvel characters.
  */
 
 public interface MarvelRepository {
